@@ -1,13 +1,5 @@
-﻿using System.Text;
+﻿using KoiCenter.WPF.Models;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace KoiCenter.WPF
 {
@@ -16,9 +8,19 @@ namespace KoiCenter.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        public FA24_SE1702_PRN221_G3_KoiVeterinaryServiceCenterContext _context;
+
         public MainWindow()
         {
             InitializeComponent();
+            _context = new FA24_SE1702_PRN221_G3_KoiVeterinaryServiceCenterContext();
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            lvPets.ItemsSource = _context.Pets.ToList();
         }
     }
+
+
 }
