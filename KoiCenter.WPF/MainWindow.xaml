@@ -17,63 +17,72 @@
         </Grid.ColumnDefinitions>
 
         <!-- Left Panel (Koi Fish Information) -->
-        <StackPanel
-        Grid.Column="0"
-        Background="LightBlue"
-        Orientation="Vertical" 
-        HorizontalAlignment="Stretch"
-        Margin="10">
+        <Border Grid.Column="0" Background="LightBlue" Padding="15" BorderBrush="Gray" BorderThickness="1" CornerRadius="8" Margin="10">
+            <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
 
-            <!-- Title Label -->
-            <Label Foreground="Red" FontWeight="Bold" FontSize="30" Content="Koi Fish Information" HorizontalAlignment="Center"/>
+                <!-- Title Label -->
+                <Label Foreground="Red" FontWeight="Bold" FontSize="30" Content="Koi Fish Information" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
-            <!-- Pet ID -->
-            <Label Content="Pet Id" FontWeight="Bold" FontSize="14" />
-            <TextBox IsReadOnly="True" Width="200" Margin="0,0,0,10"/>
+                <!-- Pet ID -->
+                <Label Content="Pet Id" FontWeight="Bold" FontSize="14" />
+                <TextBox IsReadOnly="True" Width="200" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
 
-            <!-- Name -->
-            <Label Content="Name" FontWeight="Bold" FontSize="14"/>
-            <TextBox Width="200" Margin="0,0,0,10"/>
+                <!-- Name -->
+                <Label Content="Name" FontWeight="Bold" FontSize="14"/>
+                <TextBox Width="200" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
 
-            <!-- Pet Type -->
-            <Label Content="Pet Type" FontWeight="Bold" FontSize="14"/>
-            <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+                <!-- Pet Type -->
+                <Label Content="Pet Type" FontWeight="Bold" FontSize="14"/>
+                <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
 
-            <!-- Owner -->
-            <Label Content="Owner" FontWeight="Bold" FontSize="14"/>
-            <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+                <!-- Owner -->
+                <Label Content="Owner" FontWeight="Bold" FontSize="14"/>
+                <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
 
-            <!-- Health Status -->
-            <Label Content="Health Status" FontWeight="Bold" FontSize="14"/>
-            <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+                <!-- Health Status -->
+                <Label Content="Health Status" FontWeight="Bold" FontSize="14"/>
+                <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
 
-            <!-- Last Health Check -->
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <Label Content="Last Health Check" FontWeight="Bold" FontSize="14" Width="150" />
-                <DatePicker Width="200" />
+                <!-- Last Health Check -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Label Content="Last Health Check" FontWeight="Bold" FontSize="14" Width="150" />
+                    <DatePicker Width="200" BorderBrush="Gray" BorderThickness="1"/>
+                </StackPanel>
+
+                <!-- Color -->
+                <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
+                    <Label Content="Color" FontWeight="Bold" FontSize="14" Width="150" />
+                    <TextBox Width="200" Height="26" BorderBrush="Gray" BorderThickness="1"/>
+                </StackPanel>
+
+                <!-- Buttons StackPanel -->
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,0,0,0">
+                    <Button Margin="10" Width="102" Height="30" Background="#007ACC" Foreground="White" FontWeight="Bold" 
+                    BorderBrush="DarkBlue" BorderThickness="1">Import From File</Button>
+                    <Button Margin="10" Width="55" Height="30" Background="#28A745" Foreground="White" FontWeight="Bold" 
+                    BorderBrush="Green" BorderThickness="1">Add</Button>
+                    <Button Margin="10" Width="102" Height="30" Background="#FFC107" Foreground="White" FontWeight="Bold" 
+                    BorderBrush="Orange" BorderThickness="1">Update</Button>
+                    <Button Margin="10" Width="102" Height="30" Background="#FF5733" Foreground="White" FontWeight="Bold" 
+                    BorderBrush="Red" BorderThickness="1">Delete</Button>
+                </StackPanel>
+
             </StackPanel>
+        </Border>
 
-            <!-- Color -->
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
-                <Label Content="Color" FontWeight="Bold" FontSize="14" Width="150" />
-                <TextBox Width="200" Height="26" />
-            </StackPanel>
 
-            <!-- Buttons StackPanel -->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <Button Margin="10" Width="102" Height="30" Background="#007ACC" Foreground="White" FontWeight="Bold" BorderBrush="DarkBlue" BorderThickness="1">Import From File</Button>
-                <Button Margin="10" Width="55" Height="30" Background="#28A745" Foreground="White" FontWeight="Bold" BorderBrush="Green" BorderThickness="1">Add</Button>
-                <Button Margin="10" Width="102" Height="30" Background="#FFC107" Foreground="White" FontWeight="Bold" BorderBrush="Orange" BorderThickness="1">Update</Button>
-                <Button Margin="10" Width="102" Height="30" Background="#FF5733" Foreground="White" FontWeight="Bold" BorderBrush="Red" BorderThickness="1">Delete</Button>
-            </StackPanel>
-
-        </StackPanel>
 
         <!-- Future Content in Column 2 -->
-        <StackPanel Grid.Column="1" Background="White" HorizontalAlignment="Stretch" Margin="10">
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto">
+        <Border Grid.Column="1" Background="White" HorizontalAlignment="Stretch" Margin="10" 
+        Padding="10" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8">
+            <!-- Add some subtle shadow to give depth -->
+            <Border.Effect>
+                <DropShadowEffect Color="Gray" BlurRadius="8" ShadowDepth="2" />
+            </Border.Effect>
 
-                <ListView Name="lvPets" Margin="10" BorderBrush="Gray" BorderThickness="1" ItemsSource="{Binding Pets}">
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Padding="5">
+                <ListView Name="lvPets" Margin="10" BorderBrush="Gray" BorderThickness="1" 
+                  ItemsSource="{Binding Pets}" Background="#F9F9F9">
                     <ListView.Resources>
                         <!-- Style for the ListView items -->
                         <Style TargetType="ListViewItem">
@@ -83,12 +92,15 @@
                             <Setter Property="FontSize" Value="14" />
                             <Setter Property="Margin" Value="2" />
                             <Setter Property="Padding" Value="5" />
+                            <Setter Property="BorderBrush" Value="Transparent" />
+                            <Setter Property="BorderThickness" Value="1" />
 
-                            <!-- Change background color on hover -->
+                            <!-- Change background color on hover and selected -->
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="#D3D3D3" />
+                                    <Setter Property="Background" Value="#E8E8E8" />
                                     <!-- Light Gray on hover -->
+                                    <Setter Property="Cursor" Value="Hand" />
                                 </Trigger>
                                 <Trigger Property="IsSelected" Value="True">
                                     <Setter Property="Background" Value="#007ACC" />
@@ -113,9 +125,10 @@
                         </GridView>
                     </ListView.View>
                 </ListView>
-
             </ScrollViewer>
-        </StackPanel>
+        </Border>
+
+
 
     </Grid>
 
