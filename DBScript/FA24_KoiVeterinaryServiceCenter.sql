@@ -265,6 +265,33 @@ VALUES
 ('Manager', 'Manager responsible for overseeing staff and veterinarians')
 GO
 
+-- Insert sample data into the PetType table
+INSERT INTO [FA24_SE1702_PRN221_G3_KoiVeterinaryServiceCenter].[dbo].[PetType] 
+([EnvironmentId], [GeneralType], [SpecificType])
+VALUES 
+(1, 'Fish', 'Koi - Kohaku'),
+(1, 'Fish', 'Koi - Sanke'),
+(1, 'Fish', 'Koi - Showa'),
+(1, 'Fish', 'Koi - Ogon'),
+(2, 'Reptile', 'Turtle - Red-Eared Slider'),
+(2, 'Reptile', 'Turtle - Painted Turtle'),
+(3, 'Mammal', 'Dog - Golden Retriever'),
+(3, 'Mammal', 'Dog - Shiba Inu'),
+(4, 'Bird', 'Parrot - African Grey'),
+(4, 'Bird', 'Canary - Yellow Canary')
+GO
+
+-- Insert sample data into the Environment table
+INSERT INTO [FA24_SE1702_PRN221_G3_KoiVeterinaryServiceCenter].[dbo].[Environment] 
+([EnvironmentType])
+VALUES 
+('Water'),     -- EnvironmentId = 1 (used for Koi Fish)
+('Land'),      -- EnvironmentId = 2 (used for Reptiles)
+('Domestic'),  -- EnvironmentId = 3 (used for Mammals like Dogs)
+('Air')        -- EnvironmentId = 4 (used for Birds)
+GO
+
+
 -- Insert sample data for [User]
 -- Ensure RoleId exists in Role table
 INSERT INTO [User] ([RoleId], [FullName], [Email], [PhoneNumber], [Address], [Username], [PasswordHash], [ProfilePictureUrl], [DateOfBirth], [CreatedAt], [UpdatedAt], [CreatedBy], [IsDeleted])
@@ -273,6 +300,16 @@ VALUES
 (2, 'Dr. Le Thi B', 'drlethi@example.com', '0906789123', '456 Clinic Road', 'drlethi', 'hashedpassword2', 'veterinarian1.jpg', '1975-05-12', GETDATE(), GETDATE(), 'System', 0),
 (3, 'Tran Van C', 'tranc@example.com', '0909988776', '789 Center St', 'tranc', 'hashedpassword3', 'staff1.jpg', '1992-03-08', GETDATE(), GETDATE(), 'System', 0),
 (4, 'Pham Thi D', 'phamd@example.com', '0912345678', '321 Manager Ave', 'phamd', 'hashedpassword4', 'manager1.jpg', '1980-12-22', GETDATE(), GETDATE(), 'System', 0)
+GO
+
+
+-- Insert 3 more owners into the User table
+-- Ensure RoleId = 1 corresponds to the "Customer" role
+INSERT INTO [User] ([RoleId], [FullName], [Email], [PhoneNumber], [Address], [Username], [PasswordHash], [ProfilePictureUrl], [DateOfBirth], [CreatedAt], [UpdatedAt], [CreatedBy], [IsDeleted])
+VALUES 
+(1, 'Nguyen Thi E', 'nguyene@example.com', '0912456789', '654 Koi Pond Avenue', 'nguyene', 'hashedpassword5', 'customer2.jpg', '1990-06-25', GETDATE(), GETDATE(), 'System', 0),
+(1, 'Tran Van F', 'tranvf@example.com', '0919876543', '987 Koi Village', 'tranvf', 'hashedpassword6', 'customer3.jpg', '1982-11-15', GETDATE(), GETDATE(), 'System', 0),
+(1, 'Hoang Thi G', 'hoangg@example.com', '0911234567', '321 Fish Street', 'hoangg', 'hashedpassword7', 'customer4.jpg', '1995-02-20', GETDATE(), GETDATE(), 'System', 0)
 GO
 
 -- Insert sample data for [Veterinarian]

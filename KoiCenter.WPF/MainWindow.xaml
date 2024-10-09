@@ -9,24 +9,68 @@
 
 
 
-    <Grid>
+    <Grid Background="LightGray" Margin="20">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="4*"/>
             <ColumnDefinition Width="6*"/>
-          
         </Grid.ColumnDefinitions>
 
-
+        <!-- Left Panel (Koi Fish Information) -->
         <StackPanel
-            Grid.Column="0"
-            Background="LightBlue"
-            Orientation="Vertical" 
-            Width="400" 
-            HorizontalAlignment="Left">
-            <Label Foreground="Red" FontWeight="Bold" FontSize="30" Content="Koi Fish Information"></Label>
-            <Label>Koi Fish Id</Label>
-            <TextBox></TextBox>
+        Grid.Column="0"
+        Background="LightBlue"
+        Orientation="Vertical" 
+        HorizontalAlignment="Stretch"
+        Padding="10"
+        Margin="10">
+
+            <!-- Title Label -->
+            <Label Foreground="Red" FontWeight="Bold" FontSize="30" Content="Koi Fish Information" HorizontalAlignment="Center"/>
+
+            <!-- Pet ID -->
+            <Label Content="Pet Id" FontWeight="Bold" FontSize="14" />
+            <TextBox IsReadOnly="True" Width="200" Margin="0,0,0,10"/>
+
+            <!-- Name -->
+            <Label Content="Name" FontWeight="Bold" FontSize="14"/>
+            <TextBox Width="200" Margin="0,0,0,10"/>
+
+            <!-- Pet Type -->
+            <Label Content="Pet Type" FontWeight="Bold" FontSize="14"/>
+            <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+
+            <!-- Owner -->
+            <Label Content="Owner" FontWeight="Bold" FontSize="14"/>
+            <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+
+            <!-- Health Status -->
+            <Label Content="Health Status" FontWeight="Bold" FontSize="14"/>
+            <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10"/>
+
+            <!-- Last Health Check -->
+            <Label Content="Last Health Check" FontWeight="Bold" FontSize="14"/>
+            <DatePicker Width="200" Margin="0,0,0,10"/>
+
+            <!-- Color -->
+            <Label Content="Color" FontWeight="Bold" FontSize="14"/>
+            <TextBox Width="200" Margin="0,0,0,10"/>
+
+            <!-- Buttons StackPanel -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <Button Margin="10" Width="102" Height="30" Background="#007ACC" Foreground="White" FontWeight="Bold" BorderBrush="DarkBlue" BorderThickness="1">Import From File</Button>
+                <Button Margin="10" Width="55" Height="30" Background="#28A745" Foreground="White" FontWeight="Bold" BorderBrush="Green" BorderThickness="1">Add</Button>
+                <Button Margin="10" Width="102" Height="30" Background="#FFC107" Foreground="White" FontWeight="Bold" BorderBrush="Orange" BorderThickness="1">Update</Button>
+                <Button Margin="10" Width="102" Height="30" Background="#FF5733" Foreground="White" FontWeight="Bold" BorderBrush="Red" BorderThickness="1">Delete</Button>
+            </StackPanel>
+
+        </StackPanel>
+
+        <!-- Future Content in Column 2 -->
+        <StackPanel Grid.Column="1" Background="White" HorizontalAlignment="Stretch" Margin="10">
+            <!-- Placeholder for additional content on the right -->
         </StackPanel>
     </Grid>
-    
+
+
+
 </Window>
