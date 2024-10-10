@@ -336,6 +336,18 @@ VALUES
 ('KoiB', 3, 1, 'Sanke', 'koib.jpg', 'White with red and black', 1.2, 6.5, 1, '2023-12-10', 1, 1, GETDATE(), GETDATE(), 'System', 0)
 GO
 
+INSERT INTO [Pet] ([Name], [Age], [PetTypeId], [Breed], [ImageUrl], [Color], [Length], [Weight], [Quantity], [LastHealthCheck], [OwnerId], [HealthStatus], [CreatedAt], [UpdatedAt], [CreatedBy], [IsDeleted])
+VALUES 
+('KoiC', 1, 1, 'Showa', 'koic.jpg', 'Black, red, and white', 1.1, 4.8, 1, '2023-12-05', 1, 1, GETDATE(), GETDATE(), 'System', 0),
+('KoiD', 4, 2, 'Sanke', 'koid.jpg', 'Blue with red', 0.9, 5.3, 1, '2023-11-28', 1, 1, GETDATE(), GETDATE(), 'System', 0),
+('KoiE', 2, 3, 'Showa', 'koie.jpg', 'Blue-gray with red', 1.3, 7.0, 1, '2023-12-01', 1, 1, GETDATE(), GETDATE(), 'System', 0),
+('KoiF', 5, 4, 'Ogon', 'koif.jpg', 'White with red spot', 1.0, 6.2, 1, '2023-11-20', 1, 1, GETDATE(), GETDATE(), 'System', 0),
+('KoiG', 3, 1, 'Kohaku', 'koig.jpg', 'Black with red and white', 1.4, 6.8, 1, '2023-12-08', 1, 1, GETDATE(), GETDATE(), 'System', 0),
+('KoiH', 4, 2, 'Sanke', 'koih.jpg', 'White with blue edges', 1.0, 5.5, 1, '2023-12-03', 1, 1, GETDATE(), GETDATE(), 'System', 0),
+('KoiI', 2, 3, 'Showa', 'koii.jpg', 'Black with white patterns', 1.1, 6.0, 1, '2023-12-07', 1, 1, GETDATE(), GETDATE(), 'System', 0),
+('KoiJ', 3, 4, 'Ogon', 'koij.jpg', 'Brownish-green', 1.5, 7.5, 1, '2023-11-25', 1, 1, GETDATE(), GETDATE(), 'System', 0);
+
+
 -- Insert sample data for [Product]
 -- Ensure ProductCategoryId is valid
 INSERT INTO [Product] ([ProductCategoryId], [Name], [Description], [Price], [StockQuantity], [ImageUrl], [CreatedAt], [UpdatedAt], [CreatedBy], [IsDeleted])

@@ -21,6 +21,8 @@ public partial class Pet
     public int? Age { get; set; }
 
     public int? PetTypeId { get; set; }
+    [ForeignKey("PetTypeId")]
+    public PetType PetType { get; set; }
 
     [StringLength(255)]
     [Unicode(false)]
@@ -44,6 +46,9 @@ public partial class Pet
     public DateTime? LastHealthCheck { get; set; }
 
     public int? OwnerId { get; set; }
+
+    [ForeignKey("OwnerId")]
+    public virtual User Owner { get; set; } // Navigation property for User
 
     public int? HealthStatus { get; set; }
 

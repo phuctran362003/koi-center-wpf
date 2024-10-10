@@ -25,35 +25,36 @@
                 <Label Foreground="Red" FontWeight="Bold" FontSize="30" Content="Koi Fish Information" HorizontalAlignment="Center" Margin="0,0,0,20"/>
 
                 <!-- Pet ID -->
-                <Label Content="Pet Id" FontWeight="Bold" FontSize="14" />
-                <TextBox IsReadOnly="True" Width="200" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
+                <Label Content="Id" FontWeight="Bold" FontSize="14" />
+                <TextBox Name="txtId" Text="{Binding Path=Id}" DataContext="{Binding ElementName=lvPets, Path=SelectedItem}"  IsReadOnly="True" Width="200" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
 
                 <!-- Name -->
                 <Label Content="Name" FontWeight="Bold" FontSize="14"/>
-                <TextBox Width="200" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
+                <TextBox Name="txtName" Text="{Binding Path=Name}" DataContext="{Binding ElementName=lvPets, Path=SelectedItem}" Width="200" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
 
                 <!-- Pet Type -->
                 <Label Content="Pet Type" FontWeight="Bold" FontSize="14"/>
-                <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
+                <ComboBox Name="cbPetType" Text="{Binding Path=PetType.GeneralType}" DataContext="{Binding ElementName=lvPets, Path=SelectedItem}" HorizontalAlignment="Left" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
 
                 <!-- Owner -->
                 <Label Content="Owner" FontWeight="Bold" FontSize="14"/>
-                <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
+                <ComboBox Name="cbOwner" Text="{Binding Path=Owner.Username}" DataContext="{Binding ElementName=lvPets, Path=SelectedItem}" Width="200" HorizontalAlignment="Left" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
 
                 <!-- Health Status -->
                 <Label Content="Health Status" FontWeight="Bold" FontSize="14"/>
-                <ComboBox Width="200" HorizontalAlignment="Left" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
+                <ComboBox Name="cbHealthStatus" Text="{Binding Path=HealthStatus}" DataContext="{Binding ElementName=lvPets, Path=SelectedItem}" Width="200" HorizontalAlignment="Left" Margin="0,0,0,10" BorderBrush="Gray" BorderThickness="1"/>
+
 
                 <!-- Last Health Check -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Label Content="Last Health Check" FontWeight="Bold" FontSize="14" Width="150" />
-                    <DatePicker Width="200" BorderBrush="Gray" BorderThickness="1"/>
+                    <DatePicker Name= "dtpLastHealthCheck" Text="{Binding Path=LastHealthCheck}" DataContext="{Binding ElementName=lvPets, Path=SelectedItem}" Width="200" BorderBrush="Gray" BorderThickness="1"/>
                 </StackPanel>
 
                 <!-- Color -->
                 <StackPanel Orientation="Horizontal" Margin="0,0,0,10">
                     <Label Content="Color" FontWeight="Bold" FontSize="14" Width="150" />
-                    <TextBox Width="200" Height="26" BorderBrush="Gray" BorderThickness="1"/>
+                    <TextBox Name="txtColor" Text="{Binding Path=Color}" DataContext="{Binding ElementName=lvPets, Path=SelectedItem}" Width="200" Height="26" BorderBrush="Gray" BorderThickness="1"/>
                 </StackPanel>
 
                 <!-- Buttons StackPanel -->
@@ -124,9 +125,9 @@
                             <GridViewColumn Header="Pet Name" Width="150" 
                         DisplayMemberBinding="{Binding Path=Name}" />
                             <GridViewColumn Header="Pet Type" Width="150" 
-                        DisplayMemberBinding="{Binding Path=PetTypeId}" />
+                        DisplayMemberBinding="{Binding Path=PetType.GeneralType}" />
                             <GridViewColumn Header="Owner" Width="150" 
-                        DisplayMemberBinding="{Binding Path=OwnerId}" />
+                        DisplayMemberBinding="{Binding Path=Owner.Username}" />
                             <GridViewColumn Header="Health Status" Width="150" 
                         DisplayMemberBinding="{Binding Path=HealthStatus}" />
                             <GridViewColumn Header="Last Health Check" Width="150" 
@@ -135,6 +136,7 @@
                         DisplayMemberBinding="{Binding Path=Color}" />
                         </GridView>
                     </ListView.View>
+
                 </ListView>
             </ScrollViewer>
         </Border>
