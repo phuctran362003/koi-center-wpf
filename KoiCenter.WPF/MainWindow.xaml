@@ -5,19 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:KoiCenter.WPF"
         mc:Ignorable="d"
-        Title="Koi Management" Loaded="Window_Loaded" Height="660" Width="1225"
+        Title="Koi Management" Loaded="Window_Loaded" Height="660" Width="1542"
         >
 
 
 
     <Grid Background="LightGray" Margin="20">
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="4*"/>
-            <ColumnDefinition Width="6*"/>
+            <ColumnDefinition Width="688*"/>
+            <ColumnDefinition Width="893*"/>
+            <ColumnDefinition Width="140*"/>
         </Grid.ColumnDefinitions>
 
         <!-- Left Panel (Koi Fish Information) -->
-        <Border Grid.Column="0" Background="LightBlue" Padding="15" BorderBrush="Gray" BorderThickness="1" CornerRadius="8" Margin="10">
+        <Border Grid.Column="0" Background="LightBlue" Padding="15" BorderBrush="Gray" BorderThickness="1" CornerRadius="8" Margin="10,10,10,10">
             <StackPanel Orientation="Vertical" HorizontalAlignment="Stretch">
 
                 <!-- Title Label -->
@@ -56,15 +57,15 @@
                 </StackPanel>
 
                 <!-- Buttons StackPanel -->
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,0,0,0">
+                <StackPanel Width="500" Orientation="Horizontal" HorizontalAlignment="Left" Margin="20,0,0,0">
                     <Button Margin="10" Width="102" Height="30" Background="#007ACC" Foreground="White" FontWeight="Bold" 
-                    BorderBrush="DarkBlue" BorderThickness="1">Import From File</Button>
+            BorderBrush="DarkBlue" BorderThickness="1">Import From File</Button>
                     <Button Margin="10" Width="55" Height="30" Background="#28A745" Foreground="White" FontWeight="Bold" 
-                    BorderBrush="Green" BorderThickness="1">Add</Button>
+            BorderBrush="Green" BorderThickness="1">Add</Button>
                     <Button Margin="10" Width="102" Height="30" Background="#FFC107" Foreground="White" FontWeight="Bold" 
-                    BorderBrush="Orange" BorderThickness="1">Update</Button>
+            BorderBrush="Orange" BorderThickness="1">Update</Button>
                     <Button Margin="10" Width="102" Height="30" Background="#FF5733" Foreground="White" FontWeight="Bold" 
-                    BorderBrush="Red" BorderThickness="1">Delete</Button>
+            BorderBrush="Red" BorderThickness="1">Delete</Button>
                 </StackPanel>
 
             </StackPanel>
@@ -73,18 +74,25 @@
 
 
         <!-- Future Content in Column 2 -->
-        <Border Grid.Column="1" Background="White" HorizontalAlignment="Stretch" Margin="10" 
-        Padding="10" BorderBrush="LightGray" BorderThickness="1" CornerRadius="8">
-            <!-- Add some subtle shadow to give depth -->
+        <Border Grid.Column="1" Background="White" Margin="10" 
+        Padding="10" BorderBrush="LightGray" BorderThickness="1" 
+        CornerRadius="8" Grid.ColumnSpan="2">
             <Border.Effect>
                 <DropShadowEffect Color="Gray" BlurRadius="8" ShadowDepth="2" />
             </Border.Effect>
 
-            <ScrollViewer HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Auto" Padding="5">
-                <ListView Name="lvPets" Margin="10" BorderBrush="Gray" BorderThickness="1" 
-                  ItemsSource="{Binding Pets}" Background="#F9F9F9">
+            <!-- Ensure ScrollViewer aligns content to the top -->
+            <ScrollViewer HorizontalScrollBarVisibility="Auto" 
+                  VerticalScrollBarVisibility="Auto" 
+                  Padding="5"
+                  VerticalAlignment="Top">
+                <!-- Ensure ListView aligns content to the top -->
+                <ListView Name="lvPets" Margin="10" BorderBrush="Gray" 
+                  BorderThickness="1" Background="#F9F9F9" 
+                  ItemsSource="{Binding Pets}" Height="200"
+                  VerticalAlignment="Top">
+                    <!-- Define resources and styles for ListView -->
                     <ListView.Resources>
-                        <!-- Style for the ListView items -->
                         <Style TargetType="ListViewItem">
                             <Setter Property="Background" Value="White" />
                             <Setter Property="Foreground" Value="Black" />
@@ -94,17 +102,13 @@
                             <Setter Property="Padding" Value="5" />
                             <Setter Property="BorderBrush" Value="Transparent" />
                             <Setter Property="BorderThickness" Value="1" />
-
-                            <!-- Change background color on hover and selected -->
                             <Style.Triggers>
                                 <Trigger Property="IsMouseOver" Value="True">
                                     <Setter Property="Background" Value="#E8E8E8" />
-                                    <!-- Light Gray on hover -->
                                     <Setter Property="Cursor" Value="Hand" />
                                 </Trigger>
                                 <Trigger Property="IsSelected" Value="True">
                                     <Setter Property="Background" Value="#007ACC" />
-                                    <!-- Blue when selected -->
                                     <Setter Property="Foreground" Value="White" />
                                     <Setter Property="FontWeight" Value="Bold" />
                                 </Trigger>
@@ -112,21 +116,31 @@
                         </Style>
                     </ListView.Resources>
 
-                    <!-- Define ListView Columns -->
+                    <!-- Define ListView Columns with Centered Alignment -->
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Pet Id" Width="100" DisplayMemberBinding="{Binding Path=Id}" />
-                            <GridViewColumn Header="Pet Name" Width="150" DisplayMemberBinding="{Binding Path=Name}" />
-                            <GridViewColumn Header="Pet Type" Width="150" DisplayMemberBinding="{Binding Path=PetTypeId}" />
-                            <GridViewColumn Header="Owner" Width="150" DisplayMemberBinding="{Binding Path=OwnerId}" />
-                            <GridViewColumn Header="Health Status" Width="150" DisplayMemberBinding="{Binding Path=HealthStatus}" />
-                            <GridViewColumn Header="Last Health Check" Width="150" DisplayMemberBinding="{Binding Path=LastHealthCheck}" />
-                            <GridViewColumn Header="Color" Width="100" DisplayMemberBinding="{Binding Path=Color}" />
+                            <GridViewColumn Header="Pet Id" Width="100" 
+                        DisplayMemberBinding="{Binding Path=Id}" />
+                            <GridViewColumn Header="Pet Name" Width="150" 
+                        DisplayMemberBinding="{Binding Path=Name}" />
+                            <GridViewColumn Header="Pet Type" Width="150" 
+                        DisplayMemberBinding="{Binding Path=PetTypeId}" />
+                            <GridViewColumn Header="Owner" Width="150" 
+                        DisplayMemberBinding="{Binding Path=OwnerId}" />
+                            <GridViewColumn Header="Health Status" Width="150" 
+                        DisplayMemberBinding="{Binding Path=HealthStatus}" />
+                            <GridViewColumn Header="Last Health Check" Width="150" 
+                        DisplayMemberBinding="{Binding Path=LastHealthCheck}" />
+                            <GridViewColumn Header="Color" Width="100" 
+                        DisplayMemberBinding="{Binding Path=Color}" />
                         </GridView>
                     </ListView.View>
                 </ListView>
             </ScrollViewer>
         </Border>
+
+
+
 
 
 
